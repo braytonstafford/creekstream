@@ -1,14 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Fraunces } from "next/font/google";
+import { Figtree } from "next/font/google";
 import { getGscVerification } from "@/lib/env";
 import { SITE } from "@/lib/site";
 import "./globals.css";
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -21,7 +15,7 @@ const gsc = getGscVerification();
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
   title: {
-    default: `${SITE.name} — live backyard creek camera`,
+    default: SITE.name,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
@@ -37,15 +31,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE.domain,
     siteName: SITE.name,
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: SITE.name,
     description: SITE.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: SITE.name,
     description: SITE.description,
-    site: "@creekstream",
-    creator: "@creekstream",
+    site: "@creekstreamlive",
+    creator: "@creekstreamlive",
   },
   robots: {
     index: true,
@@ -64,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c2824",
+  themeColor: "#000000",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -77,7 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fraunces.variable} ${figtree.variable}`}>{children}</body>
+      <body className={figtree.variable}>{children}</body>
     </html>
   );
 }

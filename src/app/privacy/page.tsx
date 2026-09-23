@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
+import { LegalShell } from "@/components/LegalShell";
 import { SITE } from "@/lib/site";
 import styles from "../legal.module.css";
 
@@ -12,15 +11,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <>
-      <SiteHeader />
+    <LegalShell>
       <main className={styles.page}>
         <article className={styles.article}>
           <h1 className={styles.title}>Privacy</h1>
           <p className={styles.updated}>Last updated: September 23, 2026</p>
           <p>
-            {SITE.name} ({SITE.domain}) is a simple marketing and watch page for a backyard
-            creek live camera operated by {SITE.legalEntity}.
+            {SITE.name} ({SITE.domain}) is a live stream page operated by {SITE.legalEntity}.
           </p>
           <h2>What we collect</h2>
           <p>
@@ -31,7 +28,7 @@ export default function PrivacyPage() {
           </p>
           <h2>Third-party platforms</h2>
           <p>
-            Links and optional embeds may load content from YouTube, Rumble, or X. Those
+            Links and optional embeds may load content from X, Rumble, or YouTube. Those
             services have their own privacy practices when you visit or interact with them.
           </p>
           <h2>Contact</h2>
@@ -41,7 +38,6 @@ export default function PrivacyPage() {
           </p>
         </article>
       </main>
-      <SiteFooter />
-    </>
+    </LegalShell>
   );
 }

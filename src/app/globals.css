@@ -1,27 +1,10 @@
 :root {
-  --creek-deep: #071a18;
-  --creek-night: #0c2824;
-  --creek-moss: #1a3d34;
-  --creek-teal: #2a6b5e;
-  --creek-water: #3d8f82;
-  --creek-foam: #9ecfc4;
-  --creek-mist: #d4e8e2;
-  --creek-dusk: #c9a66b;
-  --creek-dusk-soft: #e8d4a8;
-  --creek-ink: #e8f2ef;
-  --creek-muted: #a3c4bb;
-  --creek-surface: rgba(12, 40, 36, 0.72);
-  --creek-line: rgba(158, 207, 196, 0.18);
-
-  --font-display: var(--font-fraunces), "Georgia", serif;
+  --ink: #e8e8e8;
+  --muted: #9a9a9a;
+  --link: #c8c8c8;
+  --page: #000;
+  --legal-bg: #0a0a0a;
   --font-body: var(--font-figtree), "Segoe UI", sans-serif;
-
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.35);
-
-  --max: 68rem;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 *,
@@ -33,17 +16,16 @@
 }
 
 html {
-  scroll-behavior: smooth;
   color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
-  color: var(--creek-ink);
-  background: var(--creek-deep);
+  color: var(--ink);
+  background: var(--page);
   font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -59,12 +41,8 @@ svg {
   max-width: 100%;
 }
 
-button {
-  font: inherit;
-}
-
 :focus-visible {
-  outline: 2px solid var(--creek-foam);
+  outline: 2px solid rgba(255, 255, 255, 0.7);
   outline-offset: 3px;
 }
 
@@ -78,18 +56,4 @@ button {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }

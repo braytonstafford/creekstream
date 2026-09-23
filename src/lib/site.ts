@@ -6,12 +6,10 @@ export const SITE = {
   domain: getSiteUrl(),
   email: "info@creekstream.live",
   legalEntity: "Health Intellect LLC",
-  tagline: "A quiet backyard creek, live.",
-  description:
-    "Creekstream is a near-always-on live camera pointed at a real backyard creek — restreamed to YouTube, Rumble, and X. Calm water, bird song, and the weather as it happens.",
+  description: "Creekstream — live stream on X, Rumble, and YouTube.",
   socials: {
-    x: "https://x.com/creekstream",
-    youtube: "https://www.youtube.com/@creekstreamlive",
+    x: "https://x.com/creekstreamlive",
     rumble: "https://rumble.com/c/creekstream",
+    youtube: "https://www.youtube.com/@creekstreamlive",
   },
 } as const;
