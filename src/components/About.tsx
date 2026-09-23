@@ -9,7 +9,7 @@ export function About() {
         </h2>
         <p className={styles.copy}>
           Creekstream is a simple live view of a real backyard creek, captured on an Aqara
-          G100 camera and restreamed to YouTube, Rumble, and X. No betting. No crypto. No
+          G100 camera and restreamed to X, Rumble, and YouTube. No betting. No crypto. No
           accounts — just water moving through the day and night so you can drop in whenever
           you need a quieter window.
         </p>

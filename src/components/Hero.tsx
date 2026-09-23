@@ -14,7 +14,7 @@ export function Hero() {
         </h1>
         <p className={styles.tagline}>{SITE.tagline}</p>
         <p className={styles.support}>
-          One backyard creek, streaming live to YouTube, Rumble, and X — weather,
+          One backyard creek, streaming live to X, Rumble, and YouTube — weather,
           wildlife, and the quiet in between.
         </p>
         <div className={styles.ctas}>
@@ -23,11 +23,11 @@ export function Hero() {
           </a>
           <a
             className={styles.secondary}
-            href={SITE.socials.youtube}
+            href={SITE.socials.x}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Open on YouTube
+            Open on X
           </a>
         </div>
       </div>

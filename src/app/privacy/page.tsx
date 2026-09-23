@@ -31,7 +31,7 @@ export default function PrivacyPage() {
           </p>
           <h2>Third-party platforms</h2>
           <p>
-            Links and optional embeds may load content from YouTube, Rumble, or X. Those
+            Links and optional embeds may load content from X, Rumble, or YouTube. Those
             services have their own privacy practices when you visit or interact with them.
           </p>
           <h2>Contact</h2>

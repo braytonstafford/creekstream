@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
-    site: "@creekstream",
-    creator: "@creekstream",
+    site: "@creekstreamlive",
+    creator: "@creekstreamlive",
   },
   robots: {
     index: true,

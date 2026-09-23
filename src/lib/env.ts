@@ -15,12 +15,12 @@ export function getSiteUrl(): string {
   }
 }
 
-/** Public embed IDs — empty means show "coming soon", never invent IDs. */
+/** Public embed IDs — empty means show "coming soon", never invent IDs. X is primary when set. */
 export function getEmbedConfig() {
   return {
+    xEmbedUrl: (process.env.NEXT_PUBLIC_X_EMBED_URL ?? "").trim(),
     youtubeLiveId: (process.env.NEXT_PUBLIC_YOUTUBE_LIVE_ID ?? "").trim(),
     rumbleEmbedId: (process.env.NEXT_PUBLIC_RUMBLE_EMBED_ID ?? "").trim(),
-    xEmbedUrl: (process.env.NEXT_PUBLIC_X_EMBED_URL ?? "").trim(),
   };
 }
 

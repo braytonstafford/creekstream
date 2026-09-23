@@ -5,22 +5,25 @@ import styles from "./WatchLive.module.css";
 
 const platforms = [
   {
+    key: "x" as const,
+    name: "X",
+    href: SITE.socials.x,
+    blurb: "Primary live feed",
+    primary: true,
+  },
+  {
     key: "youtube" as const,
     name: "YouTube",
     href: SITE.socials.youtube,
-    blurb: "Primary live feed",
+    blurb: "Alternate live channel",
+    primary: false,
   },
   {
     key: "rumble" as const,
     name: "Rumble",
     href: SITE.socials.rumble,
     blurb: "Alternate live channel",
-  },
-  {
-    key: "x" as const,
-    name: "X",
-    href: SITE.socials.x,
-    blurb: "Live posts & clips",
+    primary: false,
   },
 ];
 
@@ -43,7 +46,8 @@ export function WatchLive() {
             Watch live
           </h2>
           <p className={styles.lead}>
-            Pick a platform — or wait for the on-page embed once stream IDs are set.
+            Start on X — or open YouTube or Rumble. On-page embeds appear once stream IDs
+            are set.
           </p>
         </header>
 
@@ -51,7 +55,11 @@ export function WatchLive() {
           {platforms.map((platform) => (
             <a
               key={platform.key}
-              className={styles.platform}
+              className={
+                platform.primary
+                  ? `${styles.platform} ${styles.platformPrimary}`
+                  : styles.platform
+              }
               href={platform.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -64,18 +72,18 @@ export function WatchLive() {
         </div>
 
         <div className={styles.embeds}>
-          <StreamEmbed
-            platform="YouTube"
-            embedUrl={youtubeUrl}
-            comingSoon={!embeds.youtubeLiveId}
-          />
+          <StreamEmbed platform="X" embedUrl={xUrl} comingSoon={!embeds.xEmbedUrl} />
           <div className={styles.embedRow}>
+            <StreamEmbed
+              platform="YouTube"
+              embedUrl={youtubeUrl}
+              comingSoon={!embeds.youtubeLiveId}
+            />
             <StreamEmbed
               platform="Rumble"
               embedUrl={rumbleUrl}
               comingSoon={!embeds.rumbleEmbedId}
             />
-            <StreamEmbed platform="X" embedUrl={xUrl} comingSoon={!embeds.xEmbedUrl} />
           </div>
         </div>
       </div>

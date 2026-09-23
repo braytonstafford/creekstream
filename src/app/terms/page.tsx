@@ -27,7 +27,7 @@ export default function TermsPage() {
           <p>
             Streams may go offline for weather, power, maintenance, or platform issues. We do
             not guarantee uninterrupted availability. Live video is restreamed to third-party
-            platforms (YouTube, Rumble, X); their terms apply when you watch there.
+            platforms (X, Rumble, YouTube); their terms apply when you watch there.
           </p>
           <h2>Acceptable use</h2>
           <p>

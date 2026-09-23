@@ -8,9 +8,9 @@ export const SITE = {
   legalEntity: "Health Intellect LLC",
   tagline: "A quiet backyard creek, live.",
   description:
-    "Creekstream is a near-always-on live camera pointed at a real backyard creek — restreamed to YouTube, Rumble, and X. Calm water, bird song, and the weather as it happens.",
+    "Creekstream is a near-always-on live camera pointed at a real backyard creek — restreamed to X, Rumble, and YouTube. Calm water, bird song, and the weather as it happens.",
   socials: {
-    x: "https://x.com/creekstream",
+    x: "https://x.com/creekstreamlive",
     youtube: "https://www.youtube.com/@creekstreamlive",
     rumble: "https://rumble.com/c/creekstream",
   },

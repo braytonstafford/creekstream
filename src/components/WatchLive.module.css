@@ -32,7 +32,7 @@
 
 .platforms {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.85rem;
   margin-bottom: 2rem;
 }
@@ -48,6 +48,21 @@
     border-color 160ms ease,
     background 160ms ease,
     transform 160ms ease;
+}
+
+.platformPrimary {
+  grid-column: 1 / -1;
+  padding: 1.45rem 1.4rem;
+  border-color: rgba(158, 207, 196, 0.35);
+  background: rgba(42, 107, 94, 0.32);
+}
+
+.platformPrimary .platformName {
+  font-size: 1.55rem;
+}
+
+.platformPrimary .platformCta {
+  font-size: 0.95rem;
 }
 
 .platform:hover {
@@ -89,5 +104,9 @@
   .platforms,
   .embedRow {
     grid-template-columns: 1fr;
+  }
+
+  .platformPrimary {
+    grid-column: auto;
   }
 }

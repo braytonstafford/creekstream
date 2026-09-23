@@ -1,6 +1,6 @@
 # Creekstream
 
-Single-page marketing / watch site for a backyard creek live camera restreamed to YouTube, Rumble, and X.
+Single-page marketing / watch site for a backyard creek live camera restreamed primarily to X, with Rumble and YouTube as secondary.
 
 - **Site (canonical):** https://creekstream.live  
 - **Contact:** info@creekstream.live  
@@ -35,9 +35,9 @@ All are optional except that `NEXT_PUBLIC_SITE_URL` should stay on the apex in p
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (default `https://creekstream.live`) |
+| `NEXT_PUBLIC_X_EMBED_URL` | Full X embed iframe URL when available (primary embed slot) |
 | `NEXT_PUBLIC_YOUTUBE_LIVE_ID` | YouTube video/live ID for embed |
 | `NEXT_PUBLIC_RUMBLE_EMBED_ID` | Rumble embed ID |
-| `NEXT_PUBLIC_X_EMBED_URL` | Full X embed iframe URL when available |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console meta verification token |
 
 Because these use the `NEXT_PUBLIC_` prefix, they are inlined at **build** time. Rebuild the image (or re-run `npm run build`) after changing them.
@@ -69,9 +69,12 @@ The container listens on port **3000**. Point your k3s Service / Ingress at that
 
 ## Socials
 
-- X: https://x.com/creekstream  
+Primary platform is **X** (`@creekstreamlive`).
+
+- X (primary): https://x.com/creekstreamlive  
 - YouTube: https://www.youtube.com/@creekstreamlive  
 - Rumble: https://rumble.com/c/creekstream  
+
 
 ## Out of scope (v1)
 
