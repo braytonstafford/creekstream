@@ -1,19 +1,9 @@
-import { About } from "@/components/About";
-import { Hero } from "@/components/Hero";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
-import { WatchLive } from "@/components/WatchLive";
+import { StreamStage } from "@/components/StreamStage";
 
 export default function HomePage() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <Hero />
-        <WatchLive />
-        <About />
-      </main>
-      <SiteFooter />
-    </>
+    <main>
+      <StreamStage />
+    </main>
   );
 }

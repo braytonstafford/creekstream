@@ -15,13 +15,48 @@ export function getSiteUrl(): string {
   }
 }
 
-/** Public embed IDs — empty means show "coming soon", never invent IDs. X is primary when set. */
+export type ActiveEmbed =
+  | { platform: "X"; embedUrl: string }
+  | { platform: "YouTube"; embedUrl: string }
+  | { platform: "Rumble"; embedUrl: string }
+  | null;
+
+/**
+ * Public embed config only. Never invent IDs.
+ * Prefer X; optional YouTube / Rumble as fallbacks when X is unset.
+ * Do not put Frigate/LAN URLs in NEXT_PUBLIC_* — they ship in the client bundle.
+ */
 export function getEmbedConfig() {
   return {
     xEmbedUrl: (process.env.NEXT_PUBLIC_X_EMBED_URL ?? "").trim(),
     youtubeLiveId: (process.env.NEXT_PUBLIC_YOUTUBE_LIVE_ID ?? "").trim(),
     rumbleEmbedId: (process.env.NEXT_PUBLIC_RUMBLE_EMBED_ID ?? "").trim(),
   };
+}
+
+/** Resolve the single full-page player source. X wins when set. */
+export function getActiveEmbed(): ActiveEmbed {
+  const embeds = getEmbedConfig();
+
+  if (embeds.xEmbedUrl) {
+    return { platform: "X", embedUrl: embeds.xEmbedUrl };
+  }
+
+  if (embeds.youtubeLiveId) {
+    return {
+      platform: "YouTube",
+      embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(embeds.youtubeLiveId)}?rel=0&autoplay=1`,
+    };
+  }
+
+  if (embeds.rumbleEmbedId) {
+    return {
+      platform: "Rumble",
+      embedUrl: `https://rumble.com/embed/${encodeURIComponent(embeds.rumbleEmbedId)}/`,
+    };
+  }
+
+  return null;
 }
 
 export function getGscVerification(): string | undefined {
