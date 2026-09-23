@@ -1,6 +1,9 @@
+import { getSiteUrl } from "@/lib/env";
+
 export const SITE = {
   name: "Creekstream",
-  domain: "https://creekstream.live",
+  /** Always the apex canonical — https://creekstream.live */
+  domain: getSiteUrl(),
   email: "info@creekstream.live",
   legalEntity: "Health Intellect LLC",
   tagline: "A quiet backyard creek, live.",
