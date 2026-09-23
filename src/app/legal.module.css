@@ -1,0 +1,49 @@
+.page {
+  min-height: 70vh;
+  padding: clamp(6rem, 12vh, 7.5rem) 0 4rem;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(42, 107, 94, 0.22), transparent 60%),
+    var(--creek-deep);
+}
+
+.article {
+  width: min(100%, 42rem);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  letter-spacing: -0.03em;
+  color: var(--creek-mist);
+  margin-bottom: 0.4rem;
+}
+
+.updated {
+  font-size: 0.9rem;
+  color: var(--creek-muted);
+  margin-bottom: 1.5rem;
+}
+
+.article h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--creek-foam);
+  margin: 1.75rem 0 0.55rem;
+}
+
+.article p {
+  color: var(--creek-muted);
+  margin-bottom: 0.85rem;
+}
+
+.article a {
+  color: var(--creek-foam);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.article a:hover {
+  color: var(--creek-mist);
+}

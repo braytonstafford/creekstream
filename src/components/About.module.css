@@ -1,0 +1,25 @@
+.section {
+  padding: clamp(3rem, 7vh, 4.5rem) 0 clamp(4rem, 9vh, 6rem);
+  background: linear-gradient(180deg, #0a221f 0%, var(--creek-deep) 100%);
+}
+
+.inner {
+  width: min(100%, 40rem);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 2.4rem);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  color: var(--creek-mist);
+  margin-bottom: 0.85rem;
+}
+
+.copy {
+  color: var(--creek-muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
