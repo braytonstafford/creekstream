@@ -10,8 +10,8 @@ export function SiteHeader() {
         {SITE.name}
       </Link>
       <nav className={styles.nav} aria-label="Primary">
-        <a href="#watch">Watch</a>
-        <a href="#about">About</a>
+        <Link href="/#watch">Watch</Link>
+        <Link href="/#about">About</Link>
         <a href={SITE.socials.youtube} target="_blank" rel="noopener noreferrer">
           Live
         </a>
