@@ -13,9 +13,18 @@
 }
 
 .home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.35rem;
 }
 
 .nav {
