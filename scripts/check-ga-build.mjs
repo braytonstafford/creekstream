@@ -49,7 +49,10 @@ for (const root of roots) {
 
 const missing = [];
 if (!haystack.includes(TEST_ID)) missing.push(TEST_ID);
-if (!haystack.includes("gtag.js")) missing.push("gtag.js");
+// Official loader path is googletagmanager.com/gtag/js (not gtag.js).
+const hasGtag =
+  haystack.includes("gtag/js") || haystack.includes("gtag.js");
+if (!hasGtag) missing.push("gtag/js");
 
 if (missing.length) {
   console.error(
@@ -58,4 +61,4 @@ if (missing.length) {
   process.exit(1);
 }
 
-console.log(`check-ga-build: ok (found ${TEST_ID} and gtag.js)`);
+console.log(`check-ga-build: ok (found ${TEST_ID} and gtag/js)`);

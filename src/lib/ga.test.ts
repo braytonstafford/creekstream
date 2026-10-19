@@ -93,6 +93,14 @@ describe("assertPageViewPayloadSafe", () => {
     assert.throws(() => assertPageViewPayloadSafe(dirtyReferrer), /\?/);
   });
 
+  test("page_title matches SITE.name", () => {
+    const payload = buildPageViewPayload({
+      origin: "https://creekstream.live",
+      pathname: "/privacy",
+    });
+    assert.equal(payload.page_title, SITE.name);
+  });
+
   test("accepts sanitized builder output including dirty inputs", () => {
     const payload = buildPageViewPayload({
       origin: "https://creekstream.live",

@@ -36,7 +36,21 @@ export function GaTracker({ measurementId }: GaTrackerProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    sendPageView(pathname);
+    // gtag stub may not exist until afterInteractive scripts inject; retry briefly.
+    if (typeof window.gtag === "function") {
+      sendPageView(pathname);
+      return;
+    }
+    const started = Date.now();
+    const timer = window.setInterval(() => {
+      if (typeof window.gtag === "function") {
+        window.clearInterval(timer);
+        sendPageView(pathname);
+      } else if (Date.now() - started > 5000) {
+        window.clearInterval(timer);
+      }
+    }, 50);
+    return () => window.clearInterval(timer);
   }, [pathname]);
 
   const configJson = JSON.stringify({

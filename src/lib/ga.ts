@@ -1,4 +1,8 @@
-import { SITE } from "@/lib/site";
+/**
+ * Static page_title for every page_view. Must stay equal to SITE.name.
+ * Imported as a literal (not from site.ts) to avoid a ga → site → env → ga cycle.
+ */
+const GA_PAGE_TITLE = "Creekstream";
 
 /** Non-empty GA4 id matching G- + alphanumerics. Construct only via parseMeasurementId. */
 export type MeasurementId = string & { readonly __brand: "MeasurementId" };
@@ -108,14 +112,14 @@ export function sanitizeReferrerOrigin(
   }
 }
 
-/** Pure. Builds a PageViewPayload safe to hand to gtag. page_title from SITE.name. */
+/** Pure. Builds a PageViewPayload safe to hand to gtag. page_title is SITE.name. */
 export function buildPageViewPayload(input: PageViewInput): PageViewPayload {
   const path = sanitizePathForAnalytics(input.pathname);
   const origin = input.origin.replace(/\/$/, "");
   const page_location = `${origin}${path}`;
   const page_referrer = sanitizeReferrerOrigin(input.documentReferrer);
   const payload: PageViewPayload = {
-    page_title: SITE.name,
+    page_title: GA_PAGE_TITLE,
     page_path: path,
     page_location,
   };
