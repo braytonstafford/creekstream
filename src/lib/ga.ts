@@ -1,7 +1,3 @@
-/**
- * Static page_title for every page_view. Must stay equal to SITE.name.
- * Imported as a literal (not from site.ts) to avoid a ga → site → env → ga cycle.
- */
 const GA_PAGE_TITLE = "Creekstream";
 
 /** Non-empty GA4 id matching G- + alphanumerics. Construct only via parseMeasurementId. */
@@ -31,7 +27,6 @@ export type PageViewPayload = {
 
 const MEASUREMENT_ID_RE = /^G-[A-Z0-9]+$/i;
 const EMAIL_RE = /[^\s@]+@[^\s@]+\.[^\s@]+/;
-/** Opaque path segment: long base64url / hex / UUID-ish material. */
 const TOKEN_SEGMENT_RE =
   /^(?:[A-Za-z0-9_-]{16,}|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i;
 const JWT_LIKE_RE = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
@@ -64,7 +59,6 @@ function stripQueryAndHash(raw: string): string {
   return raw.slice(0, end);
 }
 
-/** Trim + brand. Empty or invalid shape → undefined (no-op signal). */
 export function parseMeasurementId(
   raw: string | undefined,
 ): MeasurementId | undefined {
@@ -112,7 +106,6 @@ export function sanitizeReferrerOrigin(
   }
 }
 
-/** Pure. Builds a PageViewPayload safe to hand to gtag. page_title is SITE.name. */
 export function buildPageViewPayload(input: PageViewInput): PageViewPayload {
   const path = sanitizePathForAnalytics(input.pathname);
   const origin = input.origin.replace(/\/$/, "");

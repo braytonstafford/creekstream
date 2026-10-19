@@ -23,7 +23,6 @@ function sendPageView(pathname: string): void {
   if (typeof window === "undefined" || typeof window.gtag !== "function") {
     return;
   }
-  // Never send search or hash — pathname only; builder strips leftovers.
   const payload = buildPageViewPayload({
     origin: window.location.origin,
     pathname,

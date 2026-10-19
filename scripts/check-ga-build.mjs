@@ -38,18 +38,13 @@ for (const root of roots) {
       if (!/\.(js|html|json|rsc|map)$/.test(file)) continue;
       try {
         haystack += readFileSync(file, "utf8");
-      } catch {
-        // skip unreadable
-      }
+      } catch {}
     }
-  } catch {
-    // missing .next
-  }
+  } catch {}
 }
 
 const missing = [];
 if (!haystack.includes(TEST_ID)) missing.push(TEST_ID);
-// Official loader path is googletagmanager.com/gtag/js (not gtag.js).
 const hasGtag =
   haystack.includes("gtag/js") || haystack.includes("gtag.js");
 if (!hasGtag) missing.push("gtag/js");
