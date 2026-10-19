@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree } from "next/font/google";
-import { getGscVerification } from "@/lib/env";
+import { GaTracker } from "@/components/GaTracker";
+import { getGaMeasurementId, getGscVerification } from "@/lib/env";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -11,6 +12,7 @@ const figtree = Figtree({
 });
 
 const gsc = getGscVerification();
+const gaId = getGaMeasurementId();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
@@ -86,7 +88,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={figtree.variable}>{children}</body>
+      <body className={figtree.variable}>
+        {gaId ? <GaTracker measurementId={gaId} /> : null}
+        {children}
+      </body>
     </html>
   );
 }

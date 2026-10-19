@@ -1,4 +1,8 @@
+import { parseMeasurementId, type MeasurementId } from "@/lib/ga";
+
 const DEFAULT_SITE_URL = "https://creekstream.live";
+
+export type { MeasurementId };
 
 /** Canonical public site URL. Prefer NEXT_PUBLIC_SITE_URL; always default to creekstream.live. */
 export function getSiteUrl(): string {
@@ -62,4 +66,9 @@ export function getActiveEmbed(): ActiveEmbed {
 export function getGscVerification(): string | undefined {
   const value = (process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "").trim();
   return value || undefined;
+}
+
+/** Optional GA4 measurement id. Empty / unset → undefined (layout no-ops). */
+export function getGaMeasurementId(): MeasurementId | undefined {
+  return parseMeasurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
 }

@@ -38,10 +38,17 @@ All are optional except that `NEXT_PUBLIC_SITE_URL` should stay on the apex in p
 | `NEXT_PUBLIC_YOUTUBE_LIVE_ID` | Optional YouTube live/video ID fallback |
 | `NEXT_PUBLIC_RUMBLE_EMBED_ID` | Optional Rumble embed ID fallback |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console meta verification token |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Optional GA4 measurement ID (`G-…`). Empty → no gtag script |
 
 Because these use the `NEXT_PUBLIC_` prefix, they are inlined at **build** time. Rebuild the image (or re-run `npm run build`) after changing them.
 
 Do not put Frigate or other LAN URLs in `NEXT_PUBLIC_*` — they would ship in the client bundle.
+
+### Google Analytics 4
+
+When `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set at build time, the root layout loads gtag.js (`afterInteractive`) and sends manual `page_view` events on first load and client navigations. Automatic page views and Google signals / ad personalization are disabled in config. Paths and referrers are sanitized (no query, hash, email, or token-like segments; referrer is origin-only).
+
+**Property owner note:** In the GA4 Admin UI, turn off Enhanced measurement → “Page changes based on browser history events” (or equivalent). This app already sends SPA `page_view` events; leaving Enhanced history-change measurement on double-counts client navigations.
 
 ## Docker
 

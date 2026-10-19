@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "tsx --test src/lib/ga.test.ts",
+    "test:ga-build": "node scripts/check-ga-build.mjs"
   },
   "dependencies": {
     "next": "15.5.28",
@@ -21,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.26",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }
